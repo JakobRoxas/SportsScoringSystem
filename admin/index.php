@@ -1,5 +1,4 @@
 <?php
-// admin/index.php - comprehensive admin console
 require_once __DIR__ . '/../config.php';
 include __DIR__ . '/../public/header.php';
 
