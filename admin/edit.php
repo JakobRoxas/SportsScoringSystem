@@ -1,5 +1,4 @@
 <?php
-// admin/edit.php - Edit existing data
 require_once __DIR__ . '/../config.php';
 include __DIR__ . '/../public/header.php';
 
@@ -15,7 +14,6 @@ if (!$type || !$id) {
 $data = null;
 $fields = [];
 
-// Fetch data based on type
 switch ($type) {
   case 'team':
     $stmt = $pdo->prepare("SELECT * FROM Team WHERE TeamID = ?");
@@ -87,7 +85,6 @@ if (!$data) {
   exit;
 }
 
-// Fetch helper data for dropdowns
 $teams = $pdo->query("SELECT TeamID, TeamName FROM Team ORDER BY TeamName")->fetchAll();
 $tournaments = $pdo->query("SELECT TournamentID, TournamentName FROM Tournament ORDER BY TournamentYear DESC")->fetchAll();
 $rounds = $pdo->query("SELECT RoundID, RoundType, TournamentID FROM Round ORDER BY RoundID")->fetchAll();
@@ -214,7 +211,6 @@ $series = $pdo->query("SELECT SeriesID FROM Series ORDER BY SeriesID")->fetchAll
       </div>
     </div>
     
-    <!-- Delete Section -->
     <div class="card mt-4 border-danger">
       <div class="card-header bg-danger text-white">
         <h5 class="mb-0"><i class="fas fa-trash me-2"></i>Danger Zone</h5>
